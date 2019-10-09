@@ -3,7 +3,6 @@ package com.stackroute;
 import com.stackroute.domain.Actor;
 import com.stackroute.domain.Movie;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -20,12 +19,38 @@ public class DataConfig {
     }
 
     @Bean
+    public Actor act2(){
+        Actor actobj = new Actor();
+        actobj.setName("bale");
+        actobj.setAge(30);
+        actobj.setGender("male");
+        System.out.println("inside actor2 bean");
+        return actobj;
+    }
+
+    @Bean
+    public Actor act3(){
+        Actor actobj = new Actor();
+        actobj.setName("phoenix");
+        actobj.setAge(45);
+        actobj.setGender("male");
+        System.out.println("inside actor2 bean");
+        return actobj;
+    }
+
+    @Bean
     public Movie moviebean(){
         Movie movieBean = new Movie(actobj());
         System.out.println("inside movie bean");
         return movieBean;
     }
 
+    @Bean
+    public Movie moviebean2(){
+        Movie movieBean2 = new Movie(act3());
+        System.out.println("inside movie bean2");
+        return movieBean2;
+    }
 
 
 }
